@@ -1,8 +1,8 @@
-<<?php 
+<?php 
 
 	function FaltanDatos(){
 		echo "Falta ingresar algún dato<br>Los campos marcados con (*) son obligatorios<br>Pulse el botón para volver al formulario de ingreso<br>";
-		echo "<form action="index.php"><input type="submit" value="Volver"></form>";
+		echo "<form action="index.php" method="GET"><input type="submit" value="Volver"></form>";
 	}	//Fin funcion error
 
 	if (isset ($_POST['nombre'] , $_POST['dni'])) { //Se supone que comprueba ambas variables a la vez
