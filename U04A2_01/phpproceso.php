@@ -1,21 +1,36 @@
-<?php 
-
-	function FaltanDatos(){
-		echo "Falta ingresar algún dato<br>Los campos marcados con (*) son obligatorios<br>Pulse el botón para volver al formulario de ingreso<br>";
-		echo "<form action="index.php" method="GET"><input type="submit" value="Volver"></form>";
-	}	//Fin funcion error
-
-	if (isset ($_POST['nombre'] , $_POST['dni'])) { //Se supone que comprueba ambas variables a la vez
-		if (isset($_POST['sueldo'])){	//si ha introducido los datos obligatorios comprobamos si introdujo sueldo
-			if ($_POST['sueldo']>2000){		//al introducir sueldo comprobamos su valor
-				echo $_POST['nombre']."tiene un sueldo eficiente";
-			}else{
-				echo $_POST['nombre']."tiene un sueldo ineficiente";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Procesamiento del formulario</title>
+</head>
+<body>
+<center>
+	<?php
+	//Pasamos el array del formulario a una variable y definimos una de control
+	$array = $_POST['vector'];
+	$control=true;
+		//Buscamos si algún valor está vacio
+		for ($i=0; $i < count($array); $i++) { 
+			//Si sale vacio salimos del for y cambiamos $control a false
+			if (empty($array[$i])) {
+				$control=false;
+				break;
 			}
-		}else{
-			FaltanDatos();
 		}
-	}else{
-		FaltanDatos();
-	}
- ?>
+		//Resolvemos proceso según la variable de control
+		if ($control==false) {
+			echo "<h3>Faltan datos algo has hecho mal<br>Los datos marcados con (*) son obligatorios<br>Pulse el botón para volver al formulario de ingreso de datos</h3>";
+			echo "<form action=\"index.php\"><input type=\"submit\" value=\"Volver a ingresar datos\"></form>";
+		}else{
+			if ($array[2]>2000) {
+				echo "El sueldo de ".$array[0]." es suficiente";
+			}else{
+				echo "El sueldo de ".$array[0]." no es suficiente";
+			}
+		}
+		
+	?>
+</center>
+</body>
+</html>
