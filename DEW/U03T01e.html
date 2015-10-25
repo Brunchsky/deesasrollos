@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Window</title>
+</head>
+<body>
+	<a href="javascript:window.external.AddFavorite('http://www.web.com','NuevoFavorito')"/>Agregar favorito</a><br>
+	<a href="url1">Enlace1</a><br>
+	<a href="url2">Enlace1</a><br>
+	<a href="url3">Enlace1</a><br>
+	<img src="lugar1.jpg">
+	<img src="lugar2.jpg">
+	<img src="lugar3.jpg">
+	<img src="lugar4.jpg">
+	<img src="lugar5.jpg"><br>
+	<form action="">
+		<input type="text"><br>
+		<input type="text"><br>
+		<input type="text"><br>
+		<input type="text"><br>
+	</form>
+	<form action="">
+		<input type="checkbox" name="value" id=""><br>
+		<input type="checkbox" name="value" id=""><br>
+		<input type="checkbox" name="value" id=""><br>
+		<input type="checkbox" name="value" id=""><br>
+		<input type="checkbox" name="value" id=""><br>
+	</form>
+	<form action="">
+		<input type="radio" name="valor" id=""><br>
+		<input type="radio" name="valor" id=""><br>
+		<input type="radio" name="valor" id=""><br>
+		<input type="radio" name="valor" id=""><br>
+		<input type="radio" name="valor" id=""><br>
+	</form>
+	<script type="text/javascript">
+		document.write("el numero de enlaces es "+document.links.length+" y el de imágenes es "+document.images.length+" y el numero de formularios es "+document.forms.length);
+	</script>
+	<!-- Añadir una página a favoritos (window.external.addfavorite) en forma de hipervínculo.
+	Crear un documento HTML que tenga entre 3 y 5 enlaces, entre 2 y 6 imágenes y un formularios que tenga al menos 4 elementos (cajas de texto, botones, checkbox...). Al cargarse dicha página se deberá ejecutar un script que calcule el número de enlaces, imágenes y elementos del formularios que hay en la web y mostrar estos datos en un alert. -->
+</body>
+</html>

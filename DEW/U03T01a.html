@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Screen, Navigator, Location</title>
+	<script type="text/javascript">
+	function resolucion(){
+		//preguntamos la resolución pantalla; funciona igual si ponemos window.screen.height ¿por qué?
+		alert('La resolución de la pantalla es de '+screen.height+" x "+screen.width+' pixeles');
+	}	//fin resolucion
+	function propnavegador(){
+		//También funciona sin el window delante
+		var consulta1=[];
+		consulta1[0]=navigator.appCodeName;
+		consulta1[1]=navigator.appName;
+		consulta1[2]=navigator.appVersion;
+		consulta1[3]=navigator.cookieEnabled;
+		consulta1[4]=navigator.platform;
+		//consulta1[5]=navigator.userAgent;
+		for (var i = 0; i < consulta1.length; i++) {
+			document.getElementById('consulta').innerHTML+=consulta1[i]+", ";
+		}
+	}	//fin propnavegador
+	function pluginslist(){ 
+		var plugs=window.navigator.plugins;
+		for (var i = 0; i < plugs.length; i++) {
+			document.getElementById('consulta').innerHTML+=plugs[i]['name']+", ";
+		}
+	}	//fin pluginslist
+	function localizacion(){
+		var datos=[];
+		datos[0]=window.location.protocol;
+		datos[1]=window.location.href;
+		datos[2]=window.location.port;
+		for (var i = 0; i < datos.length; i++) {
+			document.getElementById('consulta').innerHTML+=datos[i]+", ";
+		}
+	}	//fin localizacion
+	function recargar(){
+		location.reload(true);
+	}
+	</script>
+</head>
+<body onload="resolucion()">
+	<p id="consulta"></p>
+	<form>
+		<label for="propnav"></label>
+		<input id="propnav" type="button" onclick="propnavegador()" value="Propiedades"><br><br>
+		<label for="plugins"></label>
+		<input id="plugins" type="button" onclick="pluginslist()" value="PlugIns"><br><br>
+		<label for="local"></label>
+		<input id="local" type="button" onclick="localizacion()" value="Protocolo"><br><br>
+		<input id="reload" type="button" onclick="recargar()" value="Recargar"><br><br>
+	</form>
+	<!-- Una página de aviso que indique al cargarse (mediante un alert) la resolución de pantalla. (screen.width y screen.height)
+	Una página en la que escriban todas las propiedades del navegador (objeto navigator y sus propiedades).
+	Crear una web que muestre en la Web el nombre y la descripción de los plugins instalados. Además crea una función que indique el protocolo, el puerto y la URL completa. Añade a la Web un enlace que recargue la Web. -->
+</body>
+</html>

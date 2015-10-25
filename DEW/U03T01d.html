@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>String</title>
+	<script type="text/javascript">
+	function revertir(cadena){
+		var n = cadena.length;
+		var rever = "";
+		while (n>=0) {
+			rever = rever + cadena.charAt(n);
+			n--;
+		}
+		return rever;
+	}
+	function reverfrase(frase){
+		var f = frase;
+		var p = f.split(" ");
+		var m = p.reverse();
+		var reves ="";
+		for (var i = 0; i < m.length; i++) {
+			var reves = reves + m[i];
+			reves +=" ";
+		}
+		return reves;
+	}
+	function primemayus(senten){
+		var sen = senten;
+		var i = sen.slice(0,1);
+		var j = sen.slice(1);
+		var k = i.toUpperCase()+j.toLowerCase();
+		return k;
+	}
+	</script>
+</head>
+<body>
+	<script type="text/javascript">
+	var x = revertir ('string');
+	var y = reverfrase ('una cadena de texto para darle la vuelta');
+	var z = primemayus ('una CadEnA de texto para darle la vuelta');
+	document.write(x+"<br>"+y+"<br>"+z);
+	</script>
+	<!-- darlelavueltaCaracteres(arg_str): devolverá una cadena que contiene los caracteres de la cadena arg_str en orden inverso. Por ejemplo, para darlelavueltaCaracteres("lagarto"), el valor devuelto será "otragal".
+darlelavueltaPalabras(arg_str): devolverá un string que contiene las palabras del string que recibe por argumento y devuelve otro string pero con el orden inverso de las palabras. Por ejemplo, si llamamos a la función darlelavueltaPalabras("El baifo canario tiene su propio mecanismo"), esta devolverá "mecanismo propio su tiene canario baifo El".
+laFrase(arg_str): esta función se utiliza para que una sentencia tenga la primera palabra en mayúscula y el resto en minúsculas. Básicamente, quiere aprovechar el primer carácter de arg_str y obligar al resto a minúsculas.
+La salida de laFrase("i LOVE lA ProgramacióN EN eL LADO dEl ClienTe!") sería: I love la programación en el lado del cliente! -->
+</body>
+</html>

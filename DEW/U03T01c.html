@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Math</title>
+	<script type="text/javascript">
+	function calcular(){
+		var a = parseInt(document.getElementById('num1').value);
+		var b = parseInt(document.getElementById('num2').value);
+		var res;
+		res = "La raíz cuadrada de "+a+" es: "+Math.sqrt(a)+"&#13;&#10;";
+		res += " "+a+" elevado a "+b+" es: "+Math.pow(a,b)+"&#13;&#10;";
+		res += "El número menor entero más cercano a "+a+" es: "+Math.floor(a-0.1)+"&#13;&#10;";
+		res += "El número mayor entero más cercano a "+b+" es: "+Math.ceil(b+0.1)+"&#13;&#10;";
+		if (a<b){
+			res += "Numero aleatorio entre "+a+" y "+b+" es: "+Math.floor(Math.random()*(b-a+1)+a)+"&#13;&#10;";
+		}else{
+			res += "Numero aleatorio entre "+b+" y "+a+" es: "+Math.floor(Math.random()*(a-b+1)+b)+"&#13;&#10;";
+		}
+		res += "El seno de "+b+" es: "+Math.sin(b)+"&#13;&#10;";
+		res += "El coseno de "+b+" es: "+Math.cos(b)+"&#13;&#10;";
+		res += "La tangente de "+b+" es: "+Math.tan(b)+"&#13;&#10;";
+		res += "El valor absoluto de "+a+" es: "+Math.abs(a)+"&#13;&#10;";
+		res += "El valor máximo entre "+a+" y "+b+" es: "+Math.max(a,b)+"&#13;&#10;";
+		res += "El valor mínimo entre "+a+" y "+b+" es: "+Math.min(a,b)+"&#13;&#10;";
+		document.getElementById('volcado').innerHTML=res;
+	}
+	</script>
+</head>
+<body>
+	<form action="">
+		<label for="num1">Introduzca el primer número: </label>
+		<input type="text" id="num1" name="numero1" size="8"><br><br>
+		<label for="num2">Introduzca el segundo número: </label>
+		<input type="text" id="num2" name="numero2" size="8"><br><br><br>
+	</form>
+	<textarea name="repuesta" id="volcado" rows="8" cols="100"></textarea><br>
+	<input type="submit" value="Calculos" onclick="calcular()">
+	<!-- logaritmo neperiano (o en base "e") de "a",
+raíz cuadrada de "a",
+"a" elevado a "b",
+número entero más cercano y menor a "a",
+número entero más cercano y mayor a "b",
+redondea al entero más próximo de "a",
+crear un número aleatorio entre 0 y 1, número aleatorio entre "a" y "b",
+calcular las funciones trigonométricas: seno, coseno y tangente de "b" en radianes,
+valor absoluto de "a",
+valor máximo valor entre "a" y "b",
+mínimo valor de los dos ("a" y "b") -->
+</body>
+</html>
