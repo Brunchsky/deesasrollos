@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	function cargar(valor){
+		var hija = window.open("","_blank","width=350,height=250");
+		switch (valor){
+			case '1':
+			hija.document.getElementsByTagName("body")[0].style.backgroundColor = "red";
+			break;
+			case '2':
+			hija.document.getElementsByTagName("body")[0].style.backgroundColor = "green";
+			break;
+			case '3':
+			hija.document.getElementsByTagName("body")[0].style.backgroundColor = "yellow";
+			break;
+			case '4':
+			hija.document.getElementsByTagName("body")[0].style.backgroundColor = "blue";
+			break;
+			default:
+			hija.document.write('<h1>El color elegido no está controlado</h1>');
+			break;
+		}//finswitch
+	}
+	function extraer(){
+		var selects = document.getElementById("color");
+  		var selectedValue = selects.options[selects.selectedIndex].value;
+  		//document.write(selectedValue);
+  		cargar(selectedValue);
+	}
+	</script>
+</head>
+<body>
+	<form>
+		<select id="color">
+			<option value='1'>Rojo</option>
+			<option value='2'>Verde</option>
+			<option value='3'>Amarillo</option>
+			<option value='4'>Azul</option>
+		</select>
+		<input type="submit" value="Cambiar" onclick="extraer()">
+	</form>
+	<!-- 7. Escribir una página web que va a cambiar el color de fondo de un texto en función del color elegido por el usuario. Se le solicitará al usuario un color y se mostrará el texto "Este es el color elegido" con el color de fondo seleccionado por el usuario. En caso de que el color que ha elegido el usuario no esté controlado, mostraremos "El color elegido no está controlado" en formato h1 y no cambiaremos el color de fondo. -->
+</body>
+</html>

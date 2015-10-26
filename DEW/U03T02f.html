@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	
+</head>
+<body>
+	<p id="link1">Enlace1</p>
+	<p id="link2">Enlace2</p>
+	<p id="link3">Enlace3</p>
+	<script type="text/javascript">
+	document.getElementById('link1').onclick= function(){
+		window.open("http://google.es/","ventananueva","width=200,height=200,top=0,left=200");
+	};
+	document.getElementById('link2').onclick= function(){
+		window.open("http://todofp.es/","ventananueva","width=200,height=200,left=50");
+	};
+	document.getElementById('link3').onclick= function(){
+		window.open("http://cifpcesarmanrique.es/","ventananueva","width=200,height=200,top=325,left=325");
+	};
+	</script>
+	<!-- 6. Crear tres hipervínculos en los que al hacer clic se nos abrirá una nueva ventana del navegador. Tendremos un enlace que nos abra la ventana de www.google.es, otro enlace que nos abrirá www.todofp.es y la tercera ventana, correspondiente al tercer enlace, que se abrirá la página web del centro. Estas nuevas ventanas deben tener un tamaño de 200x200 px. Las ventanas nuevas deben de abrirse:
+
+	google.es: situada en el top superior y a 200 pixeles del margen izquierdo
+	todofp.es: situada en el top inferior y a 50 pixeles del  margen izquierdo
+	página web del centro: situada a 325px  del  margen  izquierdo y superior -->
+</body>
+</html>

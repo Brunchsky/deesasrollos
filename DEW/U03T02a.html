@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>String formats en JS</title>
+	<script type="text/javascript">
+		function link(){
+			var a =	"generado desde js con un texto en varios formatos"
+			document.getElementById('link').innerHTML="Enlace "+a.link("http://www.w3schools.com/jsref/jsref_link.asp");
+		}
+		function size(){
+			var b = "generado desde js un texto con distintos formatos";
+			document.getElementById('size').innerHTML= "Con un tamaño de 5px"+ b.small();
+		}
+		function sup(){
+			var c = "generado desde js un texto con distintos formatos";
+			document.getElementById('sup').innerHTML= "Escriben superíndices "+c.sup();
+		}
+		function sub(){
+			var c = "generado desde js un texto con distintos formatos";
+			document.getElementById('sub').innerHTML= "Escriben subíndices "+c.sub();
+		}
+		function italic(){
+			var d = "generado desde js un texto con distintos formatos";
+			document.getElementById('italic').innerHTML= "Le damos formato cursiva "+d.italics();
+		}
+		function color(){
+			var e = "generado desde js un texto con distintos formatos";
+			document.getElementById('color').innerHTML= "Le damos algo de color "+e.fontcolor("red");
+		}
+		function coloritalic(){
+			var f = "generado desde js un texto con distintos formatos";
+			document.getElementById('coloritalic').innerHTML = "Le damos color e italic " +f.italics().fontcolor("red");
+		}
+	</script>
+</head>
+<body>
+	<p id="link"></p>
+	<p id="size"></p>
+	<p id="sup"></p>
+	<p id="sub"></p>
+	<p id="italic"></p>
+	<p id="color"></p>
+	<p id="coloritalic"></p>
+	<button onclick="link(),size(),sup(),sub(),italic(),color(),coloritalic()">Link</button>
+</body>
+</html>

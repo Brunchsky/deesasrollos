@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Original y Nueva</title>
+	<script type="text/javascript">
+	function cargar(){
+		document.write('Original');
+		var hija = window.open("","_blank","width=250,height=150","titlebar=yes");
+		hija.document.title="BrunoRguez";
+		hija.document.write('Nueva');
+		var elem = "<h1>Bruno</h1><h2>Rodriguez</h2><h3>"+fecha()+"</h3>";
+		hija.document.write(elem);
+		hija.document.write("<select><option value='1'>Tenerife</option><option value='2'>La Gomera</option><option value='3' selected>El Hierro</option><option value='4'>La Palma</option></select>");
+	}
+	function fecha(){
+		//declaramos la variable con la información fecha
+			var d = new Date();
+			var weekday = [];
+		    weekday[0] = "Domingo";
+		    weekday[1] = "Lunes";
+		    weekday[2] = "Martes";
+		    weekday[3] = "Miércoles";
+		    weekday[4] = "Jueves";
+		    weekday[5] = "Viernes";
+		    weekday[6] = "Sábado";
+
+    		var n = weekday[d.getDay()];
+			return n+" "+d.getMonth()+" "+d.getFullYear();
+	}
+	</script>
+</head>
+<body onload="cargar()">
+	<!-- 4. Debemos escribir un script para que al abrir una ventanan inicial o padre se genere otra ventana hija. En la ventana inicial se ha de escribir la palabra "Original" y en la ventana nueva o hija (que se abrirá a partir de la inicial) debemos escribir la palabra "Nueva". Esta ventana debe medir 250px de ancho por 150px de alto. El título de la nueva ventana original ha de ser vuestro nombre y apellidos y debe contener los siguientes elementos HTML:
+	h1 con  tu Nombre
+	h2 con  tu primer apellido
+	h3 con  la fecha actual  en  formato: dd-mm-aaaa
+	y  un selected  para elegir  tu isla canaria favorita. -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	function cargar(){
+		var hija = window.open("http://elpais.com/","ventananueva","width=600,height=450");
+	}
+	function cerrar() 
+	{
+	    window.close();
+	    window.open('http://www.gobiernodecanarias.org','_blank');
+	}
+	</script>
+</head>
+<body onload="cargar()">
+	<button onclick="cerrar()">Cerrar</button>
+	<!-- 5. Crear una web que al cargarse abra una ventana del navegador con la Web de www.elpais.com y al cerrar la ventana original abrirá la web www.gobiernodecanarias.org. -->
+</body>
+</html>

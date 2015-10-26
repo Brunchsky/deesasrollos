@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Ventanas y tamaños</title>
+	<script type="text/javascript">
+		function mostrar(){
+			//almacenamor la referencia al objeto en una variable
+			var muestra = window.open("about:blank","ventanamuestra","width=400,height=200");
+			//ejecutamos la funcion size y nos quedamos con su return
+			var tam = size();
+			//invocamos método utilizando la referencia creada
+			muestra.document.write(tam);
+		}
+		function size(){
+			var size = "Innerwidth es "+window.innerWidth+" el innerHeight es "+window.innerHeight+" el outerWidth es "+window.outerWidth+" y el outerHeight es "+window.outerHeight;
+			return size;
+		}
+	</script>
+</head>
+<body>
+	<button onclick="mostrar()">Accede</button>
+	<!-- 3. Realizar un script que al cargarse la página Web se muestre al usuario en una nueva ventana la siguiente información:  innerWidth,  outerWidth,  innerHeight y outerHeight. Probar a cambiar el tamaño de la ventana inicial y recargar su contenido para comprobar que se actualizan estos valores -->
+</body>
+</html>

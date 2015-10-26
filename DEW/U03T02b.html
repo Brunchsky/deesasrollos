@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Navegador window</title>
+	<script type="text/javascript">
+		function mostrar(){
+			var muestra = window.open("","","width=400,height=200");
+			var browser = "El navegador es "+ navigator.appCodeName;
+			muestra.document.write(browser);
+		}
+	</script>
+</head>
+<body>
+	<button onclick="mostrar()">Accede</button>
+</body>
+</html>
