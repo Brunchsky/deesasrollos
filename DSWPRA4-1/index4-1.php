@@ -1,23 +1,22 @@
 <?php
 //Comenzamos la sesion
 session_start();
-//Si venimos del link eliminar
+		//Si venimos del link eliminar
 		if (isset($_GET['delete'])) {
-			unset($_COOKIE['count']);	//con el unset podemos entrar al siguiente if
-			//setcookie("count","",time()-4200);	
+			unset($_COOKIE['contador']);	//con el unset podemos entrar al siguiente if
+			//setcookie("contador","",time()-4200);
 		}
-		//comprobamos si existe la cookie count si no existe, la creamos:si existe le sumamos 1
-		if (!isset($_COOKIE['count'])) {
-			@$numero=1;
-			setcookie("count",$numero,time()+3600);
-			setcookie("id",session_id(),time()+3600);
-			setcookie("ssname",session_name(),time()+3600);
-			setcookie("theme","insecto",time()+3600);
+		//comprobamos si existe la cookie contador si no existe, la creamos:si existe le sumamos 1
+		if (!isset($_COOKIE['contador'])) {
+			$numero=1;
+			setcookie("contador",$numero,time()+2592000);
+			//$_COOKIE[session_name] tiene como valor el id de sesión se crea en esta vuelta pero no podemos extraer su valor
 			$mensaje="Bienvenido, es la primera vez que accedes a nuestra web";
 		}else{
 			//No se si hay otra manera de sumarle una vuelta sin usar el setcookie
-			setcookie("count",(($_COOKIE['count'])+1),time()+3600);
-			$mensaje="Has accedido ".$_COOKIE['count']." a nuestra web";
+			$numero=$_COOKIE['contador']+1;
+			setcookie("contador",$numero,time()+2592000);
+			$mensaje="Has accedido ".$numero." a nuestra web";
 		}
 ?>
 <!DOCTYPE html>
@@ -27,16 +26,13 @@ session_start();
 	<title>Document</title>
 </head>
 <body>
-	<?php 
-		
-	?>
 	<h1>Autentificación PHP</h1> 
 	<!-- Formulario de acceso de datos con 2 opciones -->
 	<form action="resp4-1.php" method="POST">
 		<table width="225" cellspacing="2" cellpadding="2" border="0"> 
 			<tr><td colspan="2" align="center" 
 			<?php 
-				//opcion1 venimos de la página de respuesta con los datos rechazados
+				//opcion1 venimos de la página resp4-1 con los datos rechazados y el error producido
 				if (isset($_GET["error"])){
 			?> bgcolor=red><span style="color:ffffff"><b>Datos incorrectos <?php echo $_GET['error']; ?></b></span> 
 			<?php
@@ -66,10 +62,11 @@ session_start();
 		<h4>Contador de accesos</h4>
 		<p>
 		<?php echo $mensaje; ?><br><br>
+		<!-- Actualizamos y sumamos uno al contador -->
 		<a href="index4-1.php">Actualizar</a>
+		<!-- Actualizamos con info para entrar en el GET -->
 		<a href="index4-1.php?delete=true">Eliminar</a>
 		</p>
 	</div>
-	<?php  ?>
 </body>
 </html>

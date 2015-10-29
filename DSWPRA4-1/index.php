@@ -1,11 +1,13 @@
-<?php 
-//*************************// Obtener las librerías de estilos y que se ejecute la elegida o la puesta por defecto
-?>
+<?php
+//Entramos con el valor que de el control del include
+include 'style/css_cookie.php';
+//Definimos la cookie con ese valor
+setcookie('sitestyle',$styleCheese,time()+2592000);?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link href="style/<?php echo $_COOKIE['theme'];//*********************** ?>/style.css" rel="stylesheet" type="text/css"/>
+<link href="style/<?php echo $styleCheese; //actualizamos el estilo elegido ?>/style.css" rel="stylesheet" type="text/css"/>
 <title>Hogar dulce hogar</title>
 </head>
 <body>

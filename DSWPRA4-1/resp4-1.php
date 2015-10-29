@@ -1,6 +1,15 @@
 <?php 
 	$nombre=$_POST['usuario'];
-	setcookie("name",$nombre,time()+3600);
+	//Añadimos una vuelta al contador y actualizamos la cookie
+	$numero=$_COOKIE['contador']+1;
+	setcookie("contador",$numero,time()+2592000);
+	//Le creamos una cookie al usuario para personalizar posterior navegación
+	setcookie("name",$nombre,time()+2592000);
+	//Creamos la cookie con los datos de sesion
+	setcookie(session_name(),session_id(),time()+2592000);
+	//Extraemos indice valor del array $_COOKIE 
+	$ssid=$_COOKIE[session_name()];
+	$ssname=array_search($ssid, $_COOKIE);
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +19,7 @@
 </head>
 <body>
 	<?php
+	echo $ssname;
 //Venimos del formulario de intro datos y controlamos la contraseña
 	$pass=$_POST['contrasena'];
 	$error_encontrado="";
@@ -22,9 +32,13 @@
 		//Condicion2: que contenga sólo letras y números
 			$error_pass = "La clave debe ser sólo de números y letras";
 			return false;
-		}elseif ((!preg_match('`[a-z]`',$clave)) || (!preg_match('`[A-Z]`',$clave))) {
-		//Condicion3: debe contener alguna letra
-			$error_pass = "La clave debe contener alguna letra";
+		}elseif (!preg_match('`[a-z]`',$clave)) {
+		//Condicion3a: debe contener alguna letra minuscula
+			$error_pass = "La clave debe contener alguna letra minuscula";
+			return false;
+		}elseif (!preg_match('`[A-Z]`',$clave)) {
+		//Condicion3b: debe contener alguna letra mayúscula
+			$error_pass = "La clave debe contener alguna letra mayúscula";
 			return false;*/
 		}elseif (!preg_match('`[0-9]`',$clave)) {
 		//Condicion4: debe contener algún número
@@ -39,13 +53,14 @@
 	if (validarpass($pass,$error_encontrado)) {
 		echo "<p>Password válido<br>Se ha comprobado que ha introducido nombre y password correcto<br><br>";
 		echo "<a href='index.php'>Acceder al contenido</a><br>";
-		echo $_COOKIE['ssname']."  ".$_COOKIE['id']."<br>";
-		echo "numero de accesos: ".$_COOKIE['count']."</p>";
+		echo $ssname."  ".$ssid."<br>";
+		echo "numero de accesos: ".$numero."</p>";
 	}else{
 		echo "<p>Password no válido<br>Lo siento, no tienes privilegios para acceder a esta página, inténtelo de nuevo<br><br>";
 		echo "<a href='index4-1.php?error=$error_encontrado'>Volver al inicio</a><br>";
-		echo $_COOKIE['ssname']."  ".$_COOKIE['id']."<br>";
-		echo "numero de accesos: ".$_COOKIE['count']."</p>";
+		echo $ssname."  ".$ssid."<br>";
+		echo "numero de accesos: ".$numero."</p>";
+		$_COOKIE['contador']+=1;
 	}
 ?>
 </body>
