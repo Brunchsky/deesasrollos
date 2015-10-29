@@ -2,19 +2,23 @@
 //Comenzamos la sesion
 session_start();
 //Si venimos del link eliminar
-if (isset($_GET['delete'])) {
-	unset($_COOKIE["contador"]);
-	}
-//comprobamos si existe la cookie contador si no existe, la creamos:si existe le sumamos 1
-if (!isset($_COOKIE["contador"])) {
-		setcookie("contador",0);
-		$mensaje="Bienvenido, es la primera vez que accedes a nuestra web";
-	}else{
-		//No se si hay otra manera de sumarle una vuelta sin usar el setcookie
-		setcookie("contador",$_COOKIE["contador"]+1);
-		$mensaje="Has accedido ".$_COOKIE["contador"]." a nuestra web";
-	}
-//me daba error si ejecutaba el setcookie después del >!DOCTYPE html>
+		if (isset($_GET['delete'])) {
+			unset($_COOKIE['count']);	//con el unset podemos entrar al siguiente if
+			//setcookie("count","",time()-4200);	
+		}
+		//comprobamos si existe la cookie count si no existe, la creamos:si existe le sumamos 1
+		if (!isset($_COOKIE['count'])) {
+			@$numero=1;
+			setcookie("count",$numero,time()+3600);
+			setcookie("id",session_id(),time()+3600);
+			setcookie("ssname",session_name(),time()+3600);
+			setcookie("theme","insecto",time()+3600);
+			$mensaje="Bienvenido, es la primera vez que accedes a nuestra web";
+		}else{
+			//No se si hay otra manera de sumarle una vuelta sin usar el setcookie
+			setcookie("count",(($_COOKIE['count'])+1),time()+3600);
+			$mensaje="Has accedido ".$_COOKIE['count']." a nuestra web";
+		}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +27,9 @@ if (!isset($_COOKIE["contador"])) {
 	<title>Document</title>
 </head>
 <body>
+	<?php 
+		
+	?>
 	<h1>Autentificación PHP</h1> 
 	<!-- Formulario de acceso de datos con 2 opciones -->
 	<form action="resp4-1.php" method="POST">
@@ -31,7 +38,7 @@ if (!isset($_COOKIE["contador"])) {
 			<?php 
 				//opcion1 venimos de la página de respuesta con los datos rechazados
 				if (isset($_GET["error"])){
-			?> bgcolor=red><span style="color:ffffff"><b>Datos incorrectos</b></span> 
+			?> bgcolor=red><span style="color:ffffff"><b>Datos incorrectos <?php echo $_GET['error']; ?></b></span> 
 			<?php
 				}else{
 				//opción2 venimos limpios

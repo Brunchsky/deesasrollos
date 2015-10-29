@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<link href="style/<?php //*********************** ?>/style.css" rel="stylesheet" type="text/css"/>
+<link href="style/<?php echo $_COOKIE['theme'];//*********************** ?>/style.css" rel="stylesheet" type="text/css"/>
 <title>Hogar dulce hogar</title>
 </head>
 <body>
@@ -14,6 +14,7 @@
      <a href="index.php">Inicio</a> &nbsp; &middot; &nbsp; <a href="contact.php">Contacto</a> &nbsp; &middot; &nbsp; <a href="theme.php">Temas</a> 
   </div>
   <div  id="bodyContainer">
+    <p>Bienvenido <b><?php echo $_COOKIE['name']; ?></b></p>
     <h3>Las Ciencias Naturales Prof. Laura M. Banchio.  A 23 de septiembre de 2002. </h3>
     <p>Llamamos Ciencias Naturales a las ciencias que, desde distintos puntos de vista, estudian los fenomenos naturales.<br />
       <br />
