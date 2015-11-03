@@ -42,7 +42,7 @@ if ($conexion=mysqli_connect("127.0.0.1:8889","8user8","6pass9")) {
 echo "Hoy es día ".date("d/m/y")." y la hora actual es ".date("h:i:s")."<br><br>Queremos daros la bienvenida<br>";
 FIN EJEMPLO 2 */
 
-//EJEMPLO PAGINA 9
+/*EJEMPLO PAGINA 9
 
 //asignamos nombre de la base de datos a una variable
 $crear="8BASDAT8";
@@ -76,9 +76,31 @@ if ($conexion=mysqli_connect("127.0.0.1:8889","8user8","6pass9")) {
 	} else {	//avisamos de que no se ha podido cerrar
 		echo "<h3>No ha podido cerrar la conexión</h3>";	
 	}
-	
-} else {
+} else { //comunicamos que no nos hemos conectado
 	echo "<h2>No nos hemos podido conectar</h2>";
-}
+}*/
+
+
+//creación de la tabla
+$crear="8BASDAT8";
+$la_tabla="Ejemplo88";
+//conectamos de nuevo
+$conex=mysqli_connect("127.0.0.1:8889","8user8","6pass9") or die("Imposible conectar");
+//intentamos conectar con la base de datos
+if (!mysqli_select_db($conex,$crear)) die("<h3>ERROR: al seleccionar BD $crear</h3>".mysqli_errno());
+mysqli_query($conex,"SET NAMES 'utf8'");
+echo "creando tabla";
+//creamos el query en una variable
+$sql="CREATE TABLE $la_tabla(
+	num1 TINYINT,
+	num2 TINYINT (3) UNSIGNED ZEROFILL,
+	num3 TINYINT (7) UNSIGNED ZEROFILL DEFAULT 13,
+	num4 REAL (8,3) ZEROFILL DEFAULT 3.14,
+	fecha DATE,
+	cadena VARCHAR(32) BINARY, opcion ENUM('Si','No','Quizás'));";
+//ejecutamos el query usando variables
+if (!$result=mysqli_query($conex,$sql)) die("<h3>ERROR al ejecutar: '$sql'".mysqli_errno());
+//cerramos conexión
+mysqli_close($conex);
 
 ?>
